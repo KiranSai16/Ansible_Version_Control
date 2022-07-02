@@ -9,16 +9,16 @@
 
 - name: Ansible check directory.
   stat:
-  path: {{ doc_root }}
+    path: {{ doc_root }}
   register: my_folder 
   
 - name: "Ansible Create directory if not exists"
   file:
-  path: {{ doc_root }}
-  state: directory
-  mode: 0755
-  group: ubuntu
-  owner: ubuntu
+    path: {{ doc_root }}
+    state: directory
+    mode: 0755
+    group: ubuntu
+    owner: ubuntu
   when: my_folder.stat.exists == false
 
 - name: Start Apache
